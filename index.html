@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passerelle – Centre de langue et de culture françaises</title>
+<meta name="description" content="Passerelle, centre de langue et de culture françaises : français général A1–C1, préparation au bac, DELF, DALF, TCF, cours pour enfants et français professionnel. Test de niveau gratuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  /* ===== Charte Passerelle ===== */
+  :root{
+    --marine:#17375E; --bleu:#2B6CB0; --rouge:#D63031; --blanc:#FFFFFF;
+    --fond:#F6F8FB; --texte:#1B2A3D; --gris:#5A6678; --ligne:#E2E8F0;
+    --bleu-clair:#E8F0FA; --rouge-clair:#FCEBEB;
+    --serif:"Source Serif 4",Georgia,serif;
+    --sans:"Source Sans 3",system-ui,sans-serif;
+    --r:14px; --ombre:0 12px 32px rgba(23,55,94,.10);
+  }
+  [dir=rtl]{ --serif:"Noto Sans Arabic",sans-serif; --sans:"Noto Sans Arabic",sans-serif; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--blanc);color:var(--texte);line-height:1.6;font-size:17px}
+  h1,h2,h3{font-family:var(--serif);color:var(--marine);line-height:1.2}
+  a{color:inherit}
+  img,svg{display:block}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  section{padding:84px 0}
+  .fond{background:var(--fond)}
+  .sur-titre{display:inline-flex;align-items:center;gap:10px;color:var(--rouge);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;margin-bottom:10px}
+  [dir=rtl] .sur-titre{letter-spacing:0;font-size:.95rem}
+  .sur-titre::before{content:"";width:24px;height:3px;background:linear-gradient(90deg,var(--bleu) 50%,var(--rouge) 50%)}
+  .titre{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:12px}
+  .intro{color:var(--gris);max-width:640px;font-size:1.08rem}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;transition:.2s}
+  .btn-rouge{background:var(--rouge);color:#fff}.btn-rouge:hover{background:#b92627}
+  .btn-marine{background:var(--marine);color:#fff}.btn-marine:hover{background:#0f2744}
+  .btn-contour{border-color:var(--marine);color:var(--marine);background:transparent}.btn-contour:hover{background:var(--marine);color:#fff}
+  .btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1da851}
+  .a-completer{background:#FFF4CC;border-radius:4px;padding:0 4px}
+  /* Éléments masqués tant que les informations ne sont pas prêtes : retirez la classe "bientot" pour les afficher */
+  .bientot{display:none !important}
+  .annonce{background:#fff;border:1px solid var(--ligne);border-left:4px solid var(--rouge);border-radius:12px;padding:22px 24px;margin-top:22px;color:var(--gris)}
+  [dir=rtl] .annonce{border-left:1px solid var(--ligne);border-right:4px solid var(--rouge)}
+  .annonce b{color:var(--marine)}
+
+  /* ===== En-tête ===== */
+  .liseré{height:4px;background:linear-gradient(90deg,var(--bleu) 0 33%,var(--marine) 33% 66%,var(--rouge) 66%)}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo svg{width:46px;height:46px;flex:none}
+  .logo b{display:block;font-family:"Source Serif 4",serif;font-size:1.45rem;color:var(--marine);line-height:1}
+  .logo small{display:block;font-size:.62rem;letter-spacing:.06em;color:var(--gris);text-transform:uppercase;margin-top:3px}
+  [dir=rtl] .logo small{letter-spacing:0;font-size:.72rem}
+  .menu{display:flex;gap:22px;list-style:none;align-items:center}
+  .menu a{text-decoration:none;font-weight:600;color:var(--gris);font-size:.95rem}
+  .menu a:hover{color:var(--marine)}
+  .outils{display:flex;align-items:center;gap:10px}
+  .langue{background:none;border:1px solid var(--ligne);border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;color:var(--marine);cursor:pointer;font-size:.9rem}
+  .outils .btn{padding:10px 18px;font-size:.92rem}
+  .burger{display:none;background:none;border:0;font-size:1.7rem;color:var(--marine);cursor:pointer}
+
+  /* ===== Accueil ===== */
+  .hero{padding:72px 0 88px;background:linear-gradient(180deg,var(--bleu-clair),#fff)}
+  .hero-grille{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:18px}
+  .hero h1 span{color:var(--rouge)}
+  .hero .promesse{font-size:1.2rem;color:var(--gris);margin-bottom:30px;max-width:540px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .atouts{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .atouts span{background:#fff;border:1px solid var(--ligne);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.9rem;color:var(--marine)}
+  .carte-session{background:#fff;border-radius:22px;box-shadow:var(--ombre);overflow:hidden;border:1px solid var(--ligne)}
+  .carte-session .haut{background:var(--marine);color:#fff;padding:26px;display:flex;align-items:center;gap:16px}
+  .carte-session .haut svg{width:64px;height:64px;flex:none;background:#fff;border-radius:50%;padding:6px}
+  .carte-session .haut h3{color:#fff;font-size:1.25rem}
+  .carte-session .haut p{opacity:.85;font-size:.95rem}
+  .carte-session ul{list-style:none;padding:10px 26px 22px}
+  .carte-session li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--ligne);font-size:.97rem}
+  .carte-session li:last-child{border:0}
+  .carte-session li b{color:var(--marine)}
+
+  /* ===== Cartes ===== */
+  .grille{display:grid;gap:22px;margin-top:42px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:1fr 1fr}
+  .carte{background:#fff;border:1px solid var(--ligne);border-radius:var(--r);padding:26px;transition:.2s;position:relative}
+  .carte:hover{box-shadow:var(--ombre);transform:translateY(-3px)}
+  .carte .ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:var(--bleu-clair);margin-bottom:14px}
+  .carte:nth-child(even) .ico{background:var(--rouge-clair)}
+  .carte h3{font-size:1.25rem;margin-bottom:6px}
+  .carte p{color:var(--gris);font-size:.97rem}
+  .carte .public{font-size:.85rem;font-weight:700;color:var(--bleu);margin-bottom:8px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+  .tags span{font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--fond);border:1px solid var(--ligne);color:var(--marine)}
+  .phare{border-top:4px solid var(--rouge)}
+
+  /* ===== Méthode ===== */
+  .methode{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .etapes{display:grid;gap:18px;margin-top:8px;counter-reset:e}
+  .etape{display:flex;gap:16px;background:#fff;border:1px solid var(--ligne);border-radius:var(--r);padding:20px}
+  .etape::before{counter-increment:e;content:counter(e);flex:none;width:38px;height:38px;border-radius:50%;background:var(--marine);color:#fff;display:grid;place-items:center;font-weight:700;font-family:"Source Serif 4",serif}
+  .etape h3{font-size:1.08rem;font-family:var(--sans);margin-bottom:2px}
+  .etape p{color:var(--gris);font-size:.95rem}
+  .citation{background:var(--marine);color:#fff;border-radius:22px;padding:36px;position:sticky;top:100px}
+  .citation .slogan{font-family:var(--serif);font-size:1.7rem;line-height:1.3;margin-bottom:10px;color:#fff}
+  .citation .ar{font-family:"Noto Sans Arabic",sans-serif;font-size:1.3rem;opacity:.9;direction:rtl;text-align:right;margin-bottom:24px}
+  [dir=rtl] .citation .ar{text-align:right}
+  .citation ul{list-style:none;display:grid;gap:10px;border-top:1px solid rgba(255,255,255,.2);padding-top:20px}
+  .citation li::before{content:"✓ ";color:#ff8a8a;font-weight:700}
+
+  /* ===== Sessions ===== */
+  .sessions{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  .session{border-radius:var(--r);padding:22px;background:#fff;border:1px solid var(--ligne)}
+  .session .saison{font-weight:700;color:var(--rouge);font-size:.85rem;text-transform:uppercase;letter-spacing:.05em}
+  .session h3{font-size:1.2rem;margin:4px 0}
+  .session p{color:var(--gris);font-size:.93rem}
+
+  /* ===== Tarifs ===== */
+  table{width:100%;border-collapse:collapse;margin-top:36px;background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--ligne)}
+  th,td{padding:15px 18px;text-align:start;border-bottom:1px solid var(--ligne)}
+  th{background:var(--marine);color:#fff;font-weight:700}
+  td:last-child{font-weight:700;color:var(--marine);white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  .remises{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .remises span{background:var(--rouge-clair);color:#8f1c1d;padding:8px 14px;border-radius:999px;font-weight:600;font-size:.9rem}
+  .fondateur{margin-top:26px;background:var(--marine);color:#fff;border-radius:var(--r);padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .fondateur b{font-size:1.15rem}
+
+  /* ===== Test ===== */
+  .bandeau-test{background:linear-gradient(120deg,var(--marine),var(--bleu));color:#fff;border-radius:24px;padding:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center}
+  .bandeau-test h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:10px}
+  .bandeau-test ol{margin:14px 0 0 1.2em;opacity:.92}
+  [dir=rtl] .bandeau-test ol{margin:14px 1.2em 0 0}
+  .bandeau-test .ctas{justify-content:flex-end}
+
+  /* ===== Équipe ===== */
+  .equipe{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+  .portrait{aspect-ratio:4/5;border-radius:22px;background:var(--bleu-clair);display:grid;place-items:center;color:var(--gris);text-align:center;padding:20px;border:2px dashed #b9cbe3}
+  .profil{list-style:none;display:grid;gap:12px;margin-top:22px}
+  .profil li{display:flex;gap:12px;align-items:flex-start}
+  .profil li::before{content:"";flex:none;width:10px;height:10px;margin-top:8px;border-radius:50%;background:var(--rouge)}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:820px;margin-top:36px}
+  details{background:#fff;border:1px solid var(--ligne);border-radius:12px;padding:18px 22px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:700;color:var(--marine);list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--rouge);font-size:1.3rem;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--gris);margin-top:10px}
+
+  /* ===== Contact ===== */
+  .contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+  .infos p{display:flex;gap:12px;margin:12px 0;color:var(--gris)}
+  form{background:#fff;border:1px solid var(--ligne);border-radius:22px;padding:30px;display:grid;gap:14px;box-shadow:var(--ombre)}
+  .ligne2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{display:block;font-weight:700;font-size:.88rem;margin-bottom:5px;color:var(--marine)}
+  input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--ligne);border-radius:10px;font:inherit;background:var(--fond);color:var(--texte)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--bleu);border-color:transparent}
+  .mention-form{font-size:.82rem;color:var(--gris)}
+
+  /* ===== Pied de page ===== */
+  footer{background:var(--marine);color:#cfd9e6;padding:52px 0 26px}
+  .pied{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+  footer .logo b{color:#fff} footer .logo small{color:#aebbd0}
+  footer h4{color:#fff;margin-bottom:12px;font-family:var(--sans)}
+  footer ul{list-style:none;display:grid;gap:8px}
+  footer a{text-decoration:none} footer a:hover{color:#fff}
+  .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:18px;font-size:.85rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  .wa-flottant{position:fixed;bottom:20px;right:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  [dir=rtl] .wa-flottant{right:auto;left:20px}
+  .wa-flottant svg{width:30px;height:30px;fill:#fff}
+
+  @media (max-width:960px){
+    .menu{gap:16px} .menu a{font-size:.88rem}
+    .hero-grille,.methode,.equipe,.contact,.bandeau-test{grid-template-columns:1fr}
+    .g3,.g4,.sessions{grid-template-columns:1fr 1fr}
+    .pied{grid-template-columns:1fr 1fr}
+    .citation{position:static}
+    .bandeau-test .ctas{justify-content:flex-start}
+    section{padding:64px 0}
+  }
+  @media (max-width:820px){
+    .burger{display:block}
+    .menu{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:flex-start;background:#fff;padding:20px;border-bottom:1px solid var(--ligne)}
+    .menu.ouvert{display:flex}
+    .outils .btn{display:none}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    .g3,.g4,.g2,.sessions,.ligne2,.pied{grid-template-columns:1fr}
+    .bandeau-test{padding:30px 22px}
+    th,td{padding:12px 10px;font-size:.92rem}
+    .logo small{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Symbole simplifié (approximation) : remplacez-le par le fichier officiel du pack v4 -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="symbole" viewBox="0 0 64 64">
+    <path d="M32 18 C26 14 16 13 9 15 L9 38 C16 36 26 37 32 41Z" fill="#2B6CB0"/>
+    <path d="M32 18 C38 14 48 13 55 15 L55 38 C48 36 38 37 32 41Z" fill="#D63031"/>
+    <path d="M32 21 C27 18 19 17 13 18.5 M32 26 C27 23 19 22 13 23.5 M32 31 C27 28 19 27 13 28.5" stroke="#fff" stroke-width="1.6" fill="none"/>
+    <path d="M32 21 C37 18 45 17 51 18.5 M32 26 C37 23 45 22 51 23.5 M32 31 C37 28 45 27 51 28.5" stroke="#fff" stroke-width="1.6" fill="none"/>
+    <path d="M4 44 H60 V48 H54 A8 8 0 0 0 44 48 A12 12 0 0 0 20 48 A8 8 0 0 0 10 48 H4Z" fill="#17375E"/>
+    <path d="M10 48 V56 M20 48 V56 M44 48 V56 M54 48 V56" stroke="#17375E" stroke-width="3"/>
+    <path d="M6 59 H58" stroke="#2B6CB0" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></symbol>
+</svg>
+
+<div class="liseré"></div>
+<header>
+  <div class="wrap nav">
+    <a href="#accueil" class="logo" aria-label="Passerelle, accueil">
+      <svg><use href="#symbole"/></svg>
+      <span><b>Passerelle</b><small data-ar="مركز اللغة والثقافة الفرنسية">Centre de langue et de culture françaises</small></span>
+    </a>
+    <ul class="menu">
+      <li><a href="#cours" data-ar="الدروس">Nos cours</a></li>
+      <li><a href="#methode" data-ar="منهجيتنا">Méthode</a></li>
+      <li><a href="#tarifs" data-ar="الدورات والأسعار">Sessions & tarifs</a></li>
+      <li><a href="#culture" data-ar="الأنشطة الثقافية">Vie culturelle</a></li>
+      <li><a href="#contact" data-ar="اتصل بنا">Contact</a></li>
+    </ul>
+    <div class="outils">
+      <button class="langue" id="btn-langue" type="button">العربية</button>
+      <a href="#test" class="btn btn-rouge" data-ar="اختبار المستوى">Test de niveau</a>
+      <button class="burger" aria-label="Menu" onclick="document.querySelector('.menu').classList.toggle('ouvert')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== ACCUEIL ===== -->
+  <section class="hero" id="accueil">
+    <div class="wrap hero-grille">
+      <div>
+        <div class="sur-titre" data-ar="مركز اللغة والثقافة الفرنسية">Centre de langue et de culture françaises</div>
+        <h1 data-ar-html="الفرنسية التي <span>تصلك بالعالم</span>">Le français qui vous <span>relie au monde</span></h1>
+        <p class="promesse" data-ar="تكلّم، تصرّف، انجح: تعلّم الفرنسية من خلال مهام واقعية، مع مكوّنين مؤهلين، في أقسام صغيرة.">Parler, agir, réussir : apprenez le français en accomplissant des tâches réelles, avec des formateurs qualifiés, en petits groupes.</p>
+        <div class="ctas">
+          <a href="#test" class="btn btn-rouge" data-ar="اختبار المستوى مجانًا">Test de niveau gratuit</a>
+          <a href="#cours" class="btn btn-contour" data-ar="اكتشف الدروس">Découvrir les cours</a>
+          <a href="#" class="btn btn-wa lien-wa bientot"><svg width="18" height="18" fill="#fff"><use href="#wa"/></svg><span data-ar="راسلنا على واتساب">Écrire sur WhatsApp</span></a>
+        </div>
+        <div class="atouts">
+          <span data-ar="المستويات من A1 إلى C1">Niveaux A1 → C1 (CECRL)</span>
+          <span data-ar="15 متعلمًا كحد أقصى">15 apprenants max.</span>
+          <span data-ar="شهادة في نهاية كل دورة">Certificat de fin de session</span>
+        </div>
+      </div>
+      <div class="carte-session">
+        <div class="haut">
+          <svg><use href="#symbole"/></svg>
+          <div><h3 data-ar="التسجيل مفتوح">Inscriptions ouvertes</h3><p data-ar="دورة الخريف · أكتوبر – دجنبر">Session d'automne · octobre – décembre</p></div>
+        </div>
+        <ul>
+          <li><span data-ar="الفرنسية العامة">Français général</span><b>A1 → C1</b></li>
+          <li><span data-ar="امتحانات الباكالوريا">Examens du bac</span><b data-ar="1 و2 باك">1re & 2e année</b></li>
+          <li><span data-ar="التحضير للشهادات">Préparation certifications</span><b>DELF · DALF · TCF</b></li>
+          <li><span data-ar="الأطفال">Enfants</span><b data-ar="6 – 11 سنة">6 – 11 ans</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COURS ===== -->
+  <section id="cours">
+    <div class="wrap">
+      <div class="sur-titre" data-ar="دروسنا">Nos cours</div>
+      <h2 class="titre" data-ar="برنامج لكل هدف">Un programme pour chaque objectif</h2>
+      <p class="intro" data-ar="كل البرامج مبنية على الإطار الأوروبي المرجعي المشترك للغات، وتبدأ باختبار لتحديد المستوى.">Tous nos programmes suivent le Cadre européen commun de référence (CECRL) et commencent par un test de positionnement.</p>
+      <div class="grille g3">
+        <article class="carte phare">
+          <div class="ico">💬</div>
+          <div class="public" data-ar="المراهقون (12-17 سنة) والكبار">Ados (12-17 ans) et adultes</div>
+          <h3 data-ar="الفرنسية العامة A1 → C1">Français général A1 → C1</h3>
+          <p data-ar="التواصل الشفهي والكتابي في مواقف الحياة اليومية والدراسة والعمل.">Communiquer à l'oral et à l'écrit dans les situations de la vie quotidienne, des études et du travail.</p>
+          <div class="tags"><span data-ar="30 ساعة / دورة">30 h / session</span><span data-ar="2 × 1س30 أسبوعيًا">2 × 1 h 30 / semaine</span></div>
+        </article>
+        <article class="carte phare">
+          <div class="ico">🎓</div>
+          <div class="public" data-ar="الأولى والثانية باكالوريا">1re et 2e année bac</div>
+          <h3 data-ar="امتحانات الباكالوريا">Examens du bac</h3>
+          <p data-ar="التحضير للامتحان الجهوي والوطني في الفرنسية: منهجية، أعمال مؤلفة، كتابة، وامتحانات تجريبية.">Préparation aux examens régional et national de français : méthodologie, œuvres au programme, production écrite et examens blancs.</p>
+          <div class="tags"><span data-ar="تداريب 20 ساعة">Stages de 20 h</span><span data-ar="امتحانات تجريبية">Examens blancs</span></div>
+        </article>
+        <article class="carte phare">
+          <div class="ico">📜</div>
+          <div class="public" data-ar="الطلبة ومرشحو الدراسة أو الهجرة">Étudiants, Campus France, immigration</div>
+          <h3 data-ar="DELF · DALF · TCF · TEF">DELF · DALF · TCF · TEF</h3>
+          <p data-ar="مواضيع نموذجية، تدريب مكثف على الشفهي، ومرافقة حتى التسجيل في الامتحان.">Sujets types, entraînement intensif à l'oral et accompagnement jusqu'à l'inscription à l'examen.</p>
+          <div class="tags"><span data-ar="20 ساعة">20 h</span><span>B1 · B2 · C1</span></div>
+        </article>
+        <article class="carte">
+          <div class="ico">🧸</div>
+          <div class="public" data-ar="الأطفال (6-11 سنة)">Enfants (6-11 ans)</div>
+          <h3 data-ar="الفرنسية للأطفال">Français pour enfants</h3>
+          <p data-ar="التعلم من خلال اللعب والأناشيد والمسرح، في جو مشجع.">Apprendre en jouant, en chantant et en faisant du théâtre, dans un cadre bienveillant.</p>
+          <div class="tags"><span data-ar="30 ساعة">30 h</span><span data-ar="الأربعاء والسبت">Mercredi & samedi</span></div>
+        </article>
+        <article class="carte">
+          <div class="ico">🏨</div>
+          <div class="public" data-ar="الفنادق، الرياضات، المرشدون، الوكالات">Hôtels, riads, guides, agences</div>
+          <h3 data-ar="الفرنسية المهنية (السياحة)">Français professionnel (FOS)</h3>
+          <p data-ar="فرنسية مهنتك: الاستقبال، الهاتف، تقديم الخدمات، في مقر عملك.">Le français de votre métier : accueil, téléphone, présentation des services, sur votre lieu de travail.</p>
+          <div class="tags"><span data-ar="داخل المؤسسة">Intra-entreprise</span><span data-ar="حسب الطلب">Sur devis</span></div>
+        </article>
+        <article class="carte">
+          <div class="ico">🎤</div>
+          <div class="public" data-ar="الكبار والطلبة">Adultes et étudiants</div>
+          <h3 data-ar="التعبير الشفهي وأخذ الكلمة">Oral et prise de parole</h3>
+          <p data-ar="تجرأ على الكلام: محادثة، عرض، إقناع، مقابلة عمل.">Osez parler : conversation, exposé, argumentation, entretien d'embauche.</p>
+          <div class="tags"><span data-ar="ورشات 10 إلى 20 ساعة">Ateliers de 10 à 20 h</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MÉTHODE ===== -->
+  <section id="methode" class="fond">
+    <div class="wrap methode">
+      <div>
+        <div class="sur-titre" data-ar="منهجيتنا">Notre méthode</div>
+        <h2 class="titre" data-ar="تعلّم بالفعل">Apprendre en agissant</h2>
+        <p class="intro" style="margin-bottom:26px" data-ar="مستوحاة من المقاربة بالعمل للإطار الأوروبي: كل وحدة تنتهي بمهمة ملموسة.">Inspirée de l'approche actionnelle du CECRL : chaque unité se termine par une tâche concrète.</p>
+        <div class="etapes">
+          <div class="etape"><div><h3 data-ar="اختبار تحديد المستوى">Test de positionnement</h3><p data-ar="نقيّم مستواك كتابيًا وشفهيًا لنضعك في القسم المناسب.">Nous évaluons votre niveau à l'écrit et à l'oral pour vous placer dans le bon groupe.</p></div></div>
+          <div class="etape"><div><h3 data-ar="مهام واقعية">Des tâches réelles</h3><p data-ar="الحجز، الإقناع، التقديم، كتابة رسالة: تتعلم بالقيام بأشياء حقيقية.">Réserver, convaincre, présenter, rédiger un mail : on apprend en faisant.</p></div></div>
+          <div class="etape"><div><h3 data-ar="تقييم شفاف">Évaluation transparente</h3><p data-ar="تقييم تكويني مستمر، وحصيلة في نهاية الدورة بشبكة الإطار الأوروبي.">Évaluation continue et bilan de fin de session avec une grille CECRL.</p></div></div>
+          <div class="etape"><div><h3 data-ar="ملف المتعلم">Portfolio de l'apprenant</h3><p data-ar="أهدافك وإنتاجاتك وتقدمك، في ملف واحد تحتفظ به.">Vos objectifs, vos productions et vos progrès, réunis dans un dossier qui vous suit.</p></div></div>
+          <div class="etape"><div><h3 data-ar="شهادة المستوى">Certificat de niveau</h3><p data-ar="شهادة تثبت المستوى المحقق في نهاية كل دورة.">Une attestation du niveau atteint à la fin de chaque session.</p></div></div>
+        </div>
+      </div>
+      <aside class="citation">
+        <p class="slogan">« Le français qui vous relie au monde »</p>
+        <p class="ar">الفرنسية التي تصلك بالعالم</p>
+        <ul>
+          <li data-ar="أقسام من 12 إلى 15 متعلمًا كحد أقصى">Classes de 12 à 15 apprenants maximum</li>
+          <li data-ar="مكوّنون مؤهلون في تدريس الفرنسية للأجانب">Formateurs qualifiés en FLE</li>
+          <li data-ar="كتب مرجعية وأوراق عمل خاصة بالمركز">Manuels de référence et fiches maison</li>
+          <li data-ar="رد على واتساب في أقل من ساعتين">Réponse WhatsApp en moins de 2 h</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== SESSIONS & TARIFS ===== -->
+  <section id="tarifs">
+    <div class="wrap">
+      <div class="sur-titre" data-ar="الدورات والأسعار">Sessions & tarifs</div>
+      <h2 class="titre" data-ar="أربع دورات في السنة">Quatre sessions par an</h2>
+      <p class="intro" data-ar="يمكن الالتحاق بأقسام جديدة في بداية كل دورة. الدروس الخصوصية تبدأ في أي وقت.">De nouveaux groupes ouvrent au début de chaque session. Les cours particuliers commencent à tout moment.</p>
+      <div class="sessions">
+        <div class="session"><div class="saison" data-ar="الخريف">Automne</div><h3 data-ar="أكتوبر – دجنبر">Octobre – décembre</h3><p data-ar="الدخول الرئيسي">La grande rentrée</p></div>
+        <div class="session"><div class="saison" data-ar="الشتاء">Hiver</div><h3 data-ar="يناير – مارس">Janvier – mars</h3><p data-ar="مع أسبوع الفرنكوفونية">Avec la Semaine de la francophonie</p></div>
+        <div class="session"><div class="saison" data-ar="الربيع">Printemps</div><h3 data-ar="أبريل – يونيو">Avril – juin</h3><p data-ar="فترة الامتحانات">Spécial examens</p></div>
+        <div class="session"><div class="saison" data-ar="الصيف">Été</div><h3 data-ar="يوليوز">Juillet</h3><p data-ar="دروس مكثفة">Cours intensifs</p></div>
+      </div>
+
+      <p class="annonce" data-ar-html="<b>الأسعار</b> تُعلن قريبًا، ويتم تقديمها أيضًا خلال اختبار تحديد المستوى."><b>Les tarifs</b> seront publiés prochainement ; ils vous sont aussi présentés lors du test de niveau.</p>
+      <table class="bientot">
+        <thead><tr><th data-ar="البرنامج">Programme</th><th data-ar="المدة">Durée</th><th data-ar="السعر">Prix</th></tr></thead>
+        <tbody>
+          <tr><td data-ar="الفرنسية العامة (مراهقون وكبار)">Français général (ados et adultes)</td><td data-ar="30 ساعة">30 h</td><td><span class="a-completer">— DH</span></td></tr>
+          <tr><td data-ar="الفرنسية للأطفال">Français pour enfants</td><td data-ar="30 ساعة">30 h</td><td><span class="a-completer">— DH</span></td></tr>
+          <tr><td data-ar="تدريب امتحانات الباكالوريا">Stage examens du bac</td><td data-ar="20 ساعة">20 h</td><td><span class="a-completer">— DH</span></td></tr>
+          <tr><td data-ar="التحضير لـ DELF / DALF / TCF">Préparation DELF / DALF / TCF</td><td data-ar="20 ساعة">20 h</td><td><span class="a-completer">— DH</span></td></tr>
+          <tr><td data-ar="درس خصوصي">Cours particulier</td><td data-ar="للساعة">à l'heure</td><td><span class="a-completer">— DH / h</span></td></tr>
+          <tr><td data-ar="الفرنسية المهنية في المؤسسة">Français professionnel en entreprise</td><td data-ar="حسب الطلب">sur devis</td><td data-ar="اتصلوا بنا">Nous contacter</td></tr>
+        </tbody>
+      </table>
+      <p class="mention-form bientot" style="margin-top:10px" data-ar="رسوم التسجيل السنوية (تشمل الاختبار وبطاقة المتعلم): — درهم">Frais d'inscription annuels (test de niveau et carte d'apprenant inclus) : <span class="a-completer">— DH</span></p>
+      <div class="remises">
+        <span data-ar="الإخوة: ‎-10%">Fratrie : -10 %</span>
+        <span data-ar="إعادة التسجيل المبكر: ‎-10%">Réinscription anticipée : -10 %</span>
+        <span data-ar="الدعوة: حصة مجانية">Parrainage : une séance offerte</span>
+        <span data-ar="أداء السنة كاملة: ‎-15%">Année payée en une fois : -15 %</span>
+      </div>
+      <div class="fondateur">
+        <div><b data-ar="ثمن «العضو المؤسس»">Tarif « membre fondateur »</b><br><span data-ar="سعر خاص لأول 50 مسجلًا.">Un prix spécial pour les 50 premiers inscrits.</span></div>
+        <a href="#contact" class="btn btn-rouge" data-ar="أحجز مكاني">Je réserve ma place</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEST DE NIVEAU ===== -->
+  <section id="test" class="fond">
+    <div class="wrap">
+      <div class="bandeau-test">
+        <div>
+          <h2 data-ar="اختبار تحديد المستوى مجانًا">Test de niveau gratuit</h2>
+          <p data-ar="حوالي 30 دقيقة، بدون أي التزام.">Environ 30 minutes, sans engagement.</p>
+          <ol>
+            <li data-ar="أجب عن الاختبار الكتابي عبر الإنترنت.">Répondez au test écrit en ligne.</li>
+            <li data-ar="احجز مقابلة شفهية قصيرة في المركز أو عن بعد.">Prenez rendez-vous pour un court entretien oral, au centre ou à distance.</li>
+            <li data-ar="نقترح عليك القسم والبرنامج المناسبين.">Nous vous proposons le groupe et le programme adaptés.</li>
+          </ol>
+        </div>
+        <div class="ctas bientot">
+          <!-- Remplacez # par le lien de votre test (Google Forms ou Tahaddi) -->
+          <a href="#" class="btn btn-rouge" id="lien-test" data-ar="ابدأ الاختبار">Commencer le test</a>
+          <a href="#" class="btn btn-wa lien-wa"><span data-ar="احجز موعدًا">Prendre rendez-vous</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIE CULTURELLE ===== -->
+  <section id="culture">
+    <div class="wrap">
+      <div class="sur-titre" data-ar="أكثر من مجرد درس">Au-delà du cours</div>
+      <h2 class="titre" data-ar="حياة ثقافية بالفرنسية">Une vie culturelle en français</h2>
+      <p class="intro" data-ar="مع بطاقة المتعلم، تستفيد من الخزانة ومن برنامج ثقافي شهري.">Avec votre carte d'apprenant, profitez du coin médiathèque et d'un agenda culturel chaque mois.</p>
+      <div class="grille g4">
+        <div class="carte"><div class="ico">📚</div><h3 data-ar="الخزانة">Médiathèque</h3><p data-ar="استعارة الكتب والقصص المصورة والمجلات والأفلام.">Prêt de livres, BD, magazines et films.</p></div>
+        <div class="carte"><div class="ico">☕</div><h3 data-ar="مقهى المحادثة">Café-conversation</h3><p data-ar="تكلم بحرية في جو ودي.">Parler librement, dans une ambiance détendue.</p></div>
+        <div class="carte"><div class="ico">🎬</div><h3 data-ar="نادي السينما">Ciné-club</h3><p data-ar="أفلام فرنكوفونية متبوعة بنقاش.">Films francophones suivis d'un échange.</p></div>
+        <div class="carte"><div class="ico">🏆</div><h3 data-ar="مسابقة الخطابة">Concours d'éloquence</h3><p data-ar="وقراءات عمومية وأسبوع الفرنكوفونية في مارس.">Et lectures publiques, Semaine de la francophonie en mars.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ÉQUIPE ===== -->
+  <section id="equipe" class="fond bientot">
+    <div class="wrap equipe">
+      <div class="portrait" data-ar="صورتك هنا">Votre photo ici</div>
+      <div>
+        <div class="sur-titre" data-ar="الفريق">L'équipe</div>
+        <h2 class="titre" data-ar="إدارة تربوية ذات خبرة">Une direction pédagogique expérimentée</h2>
+        <p class="intro"><span class="a-completer" data-ar="[الاسم]">[Nom et prénom]</span> — <span data-ar="المدير التربوي">directeur pédagogique</span></p>
+        <ul class="profil">
+          <li data-ar="أستاذ مبرز">Professeur agrégé</li>
+          <li data-ar="مكوّن في الفرنسية لغة أجنبية والفرنسية لأغراض خاصة">Formateur en FLE et en français sur objectif spécifique (FOS)</li>
+          <li data-ar="مكوّن في تدريس المواد غير اللغوية بالفرنسية">Formateur DNL</li>
+          <li data-ar="أكثر من 10 سنوات من الخبرة، ثلاثي اللغة">Plus de 10 ans d'expérience, trilingue</li>
+          <li data-ar="متخصص في المقاربة بالعمل">Spécialiste de l'approche actionnelle</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sur-titre" data-ar="أسئلة متكررة">Questions fréquentes</div>
+      <h2 class="titre" data-ar="لديك سؤال؟">Vous avez une question ?</h2>
+      <div class="faq">
+        <details><summary data-ar="هل يمكنني اجتياز DELF أو TCF في المركز؟">Puis-je passer le DELF ou le TCF chez vous ?</summary><p data-ar="باسريل مركز للتحضير. تُجرى الامتحانات الرسمية لدى المؤسسة المعتمدة، ونرافقك في التسجيل.">Passerelle est un centre de préparation. Les examens officiels se passent auprès de l'organisme habilité, et nous vous accompagnons pour l'inscription.</p></details>
+        <details><summary data-ar="متى تبدأ الدروس؟">Quand commencent les cours ?</summary><p data-ar="في بداية كل دورة: أكتوبر، يناير، أبريل ويوليوز. الدروس الخصوصية في أي وقت.">Au début de chaque session : octobre, janvier, avril et juillet. Les cours particuliers à tout moment.</p></details>
+        <details><summary data-ar="من أي سن يمكن التسجيل؟">À partir de quel âge ?</summary><p data-ar="من 6 سنوات للأطفال. لا يوجد حد أقصى للسن.">Dès 6 ans pour les enfants. Il n'y a pas d'âge maximum.</p></details>
+        <details><summary data-ar="هل يمكن الأداء على دفعات؟">Puis-je payer en plusieurs fois ?</summary><p data-ar="نعم، يمكن الأداء لكل دورة، مع تخفيض 15% عند أداء السنة كاملة.">Oui, le paiement par session est possible, et l'année payée en une fois donne droit à -15 %.</p></details>
+        <details><summary data-ar="ماذا لو غبت عن حصة؟">Et si je manque une séance ?</summary><p data-ar="يتم مشاركة الدعامات بعد كل حصة، ويساعدك المكوّن على تدارك ما فاتك.">Les supports sont partagés après chaque séance et votre formateur vous aide à rattraper.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="fond">
+    <div class="wrap contact">
+      <div class="infos">
+        <div class="sur-titre" data-ar="التسجيل والاتصال">Inscription & contact</div>
+        <h2 class="titre" data-ar="سجّل أو اطرح سؤالك">Inscrivez-vous ou posez votre question</h2>
+        <p class="intro bientot" data-ar="املأ الاستمارة: يتم إرسالها إلينا على واتساب ونرد عليك بسرعة.">Remplissez le formulaire : il nous est envoyé sur WhatsApp et nous vous répondons rapidement.</p>
+        <p class="annonce" data-ar-html="<b>افتتاح قريب.</b> سيتم نشر عنوان المركز ووسائل الاتصال واستمارة التسجيل هنا قريبًا جدًا."><b>Ouverture prochaine.</b> L'adresse du centre, les coordonnées et le formulaire d'inscription seront publiés ici très bientôt.</p>
+        <div class="bientot">
+        <p>📍 <span class="a-completer">[Adresse du centre, ville]</span></p>
+        <p>📞 <span class="a-completer">[+212 6 00 00 00 00]</span></p>
+        <p>✉️ <span class="a-completer">[contact@passerelle.ma]</span></p>
+        <p>🕘 <span class="a-completer" data-ar="[أوقات العمل]">[Lun–Ven 9h–20h · Sam 9h–14h]</span></p>
+        </div>
+      </div>
+      <form id="formulaire" class="bientot">
+        <div class="ligne2">
+          <div><label for="nom" data-ar="الاسم الكامل">Nom complet</label><input id="nom" required></div>
+          <div><label for="tel" data-ar="الهاتف">Téléphone</label><input id="tel" type="tel" required></div>
+        </div>
+        <div class="ligne2">
+          <div><label for="pour" data-ar="الدرس لـ">Le cours est pour</label>
+            <select id="pour"><option data-ar="نفسي">Moi-même</option><option data-ar="ابني / ابنتي">Mon enfant</option><option data-ar="مؤسستي">Mon entreprise</option></select></div>
+          <div><label for="prog" data-ar="البرنامج">Programme</label>
+            <select id="prog">
+              <option data-ar="الفرنسية العامة">Français général</option>
+              <option data-ar="امتحانات الباكالوريا">Examens du bac</option>
+              <option>DELF / DALF / TCF / TEF</option>
+              <option data-ar="الفرنسية للأطفال">Français pour enfants</option>
+              <option data-ar="الفرنسية المهنية">Français professionnel</option>
+              <option data-ar="التعبير الشفهي">Oral et prise de parole</option>
+            </select></div>
+        </div>
+        <div><label for="msg" data-ar="رسالة (اختياري)">Message (facultatif)</label><textarea id="msg" rows="4"></textarea></div>
+        <button class="btn btn-rouge" type="submit" style="justify-content:center"><span data-ar="إرسال عبر واتساب">Envoyer via WhatsApp</span></button>
+        <p class="mention-form" data-ar="تُستعمل معطياتك فقط للرد على طلبك (القانون 09-08).">Vos données servent uniquement à répondre à votre demande (loi 09-08).</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pied">
+      <div>
+        <a href="#accueil" class="logo"><svg style="background:#fff;border-radius:50%;padding:4px"><use href="#symbole"/></svg><span><b>Passerelle</b><small data-ar="مركز اللغة والثقافة الفرنسية">Centre de langue et de culture françaises</small></span></a>
+        <p style="margin-top:14px;max-width:340px">« Le français qui vous relie au monde »<br><span style="font-family:'Noto Sans Arabic',sans-serif">الفرنسية التي تصلك بالعالم</span></p>
+      </div>
+      <div>
+        <h4 data-ar="الدروس">Nos cours</h4>
+        <ul>
+          <li><a href="#cours" data-ar="الفرنسية العامة">Français général</a></li>
+          <li><a href="#cours" data-ar="امتحانات الباكالوريا">Examens du bac</a></li>
+          <li><a href="#cours">DELF · DALF · TCF</a></li>
+          <li><a href="#cours" data-ar="الأطفال">Enfants</a></li>
+        </ul>
+      </div>
+      <div class="bientot">
+        <h4 data-ar="تابعونا">Suivez-nous</h4>
+        <ul>
+          <li><a href="#">Instagram · @passerelle.centre</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#" class="lien-wa">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span class="bientot"><span data-ar="رخصة رقم">Autorisation n°</span> <span class="a-completer">[—]</span> · ICE <span class="a-completer">[—]</span></span>
+      <span>© <span id="annee"></span> Passerelle</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="wa-flottant lien-wa bientot" aria-label="WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+  /* ====== À PERSONNALISER ====== */
+  const WHATSAPP = "212600000000";   // votre numéro WhatsApp, format international sans +
+  const LIEN_TEST = "#";             // lien de votre test de niveau (Google Forms, Tahaddi…)
+  /* ============================= */
+
+  document.getElementById('annee').textContent = new Date().getFullYear();
+  if (LIEN_TEST !== "#") { const t = document.getElementById('lien-test'); t.href = LIEN_TEST; t.target = "_blank"; }
+
+  const waUrl = txt => "https://wa.me/" + WHATSAPP + (txt ? "?text=" + encodeURIComponent(txt) : "");
+  document.querySelectorAll('.lien-wa').forEach(a => { a.href = waUrl("Bonjour Passerelle, je souhaite avoir des informations."); a.target = "_blank"; a.rel = "noopener"; });
+
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => document.querySelector('.menu').classList.remove('ouvert')));
+
+  document.getElementById('formulaire').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id);
+    const sel = id => v(id).options[v(id).selectedIndex].text;
+    const txt = `Bonjour Passerelle,\nNom : ${v('nom').value}\nTéléphone : ${v('tel').value}\nPour : ${sel('pour')}\nProgramme : ${sel('prog')}\n${v('msg').value}`;
+    window.open(waUrl(txt), "_blank", "noopener");
+  });
+
+  /* ===== Bascule français / arabe ===== */
+  const els = document.querySelectorAll('[data-ar],[data-ar-html]');
+  els.forEach(el => { el.dataset.fr = el.innerHTML; });
+  let ar = false;
+  function appliquer() {
+    document.documentElement.lang = ar ? 'ar' : 'fr';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    els.forEach(el => {
+      if (ar) { if (el.dataset.arHtml) el.innerHTML = el.dataset.arHtml; else el.textContent = el.dataset.ar; }
+      else el.innerHTML = el.dataset.fr;
+    });
+    document.getElementById('btn-langue').textContent = ar ? 'Français' : 'العربية';
+    try { localStorage.setItem('passerelle-langue', ar ? 'ar' : 'fr'); } catch (e) {}
+  }
+  document.getElementById('btn-langue').addEventListener('click', () => { ar = !ar; appliquer(); });
+  try { if (localStorage.getItem('passerelle-langue') === 'ar') { ar = true; appliquer(); } } catch (e) {}
+</script>
+</body>
+</html>
